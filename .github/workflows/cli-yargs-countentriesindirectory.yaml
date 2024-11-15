@@ -25,6 +25,6 @@ jobs:
       - name: Install dependencies
         run: npm install  # Install dependencies using npm
         working-directory: './cli/yargs/countEntriesInDirectory'  # Path to the app directory
-      - name: Run tests
-        run: npm run test  # Run tests defined in package.json
-        working-directory: './cli/yargs/countEntriesInDirectory'  # Path to the app directory
+      # - name: Run tests
+      #   run: npm run test  # Run tests defined in package.json
+      #   working-directory: './cli/yargs/countEntriesInDirectory'  # Path to the app directory

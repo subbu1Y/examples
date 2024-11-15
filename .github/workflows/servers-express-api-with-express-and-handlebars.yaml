@@ -13,22 +13,18 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
-        node-version: [12.x]
+    runs-on: ubuntu-latest  # Static OS value (ubuntu-latest)
     env:
       CI: true
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
+      - uses: actions/checkout@v2  # Checkout code from repository
+      - name: Use Node.js 12.x  # Static Node.js version (12.x)
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '12.x'  # Hardcoded Node.js version
       - name: Install dependencies
-        run: npm install
-        working-directory: './servers/express/api-with-express-and-handlebars'
-      - name: npm test
-        run: npm test
-        working-directory: './servers/express/api-with-express-and-handlebars'
+        run: npm install  # Install dependencies using npm
+        working-directory: './servers/express/api-with-express-and-handlebars'  # Path to the app directory
+      - name: Run tests
+        run: npm test  # Run tests defined in package.json
+        working-directory: './servers/express/api-with-express-and-handlebars'  # Path to the app directory

@@ -4,20 +4,16 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node-version: [14.x]
+    runs-on: ubuntu-latest  # Static OS value
     env:
       CI: true
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v2  # Checkout code from repository
+    - name: Use Node.js 14.x
+      uses: actions/setup-node@v1  # Setup Node.js (static version 14.x)
       with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install
-      run: npm install
-    - name: npm run test:markdown
-      run: npm run test:markdown
+        node-version: '14.x'
+    - name: Install dependencies
+      run: npm install  # Install dependencies via npm
+    - name: Run tests
+      run: npm run test:markdown  # Run tests (assuming this is defined in package.json)

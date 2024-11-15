@@ -16,7 +16,7 @@ jobs:
     - name: Install dependencies
       run: npm install  # Install dependencies via npm
 
-    test:
+  test:
       runs-on: ubuntu-latest  # Static OS value
       env:
         CI: true
@@ -28,5 +28,5 @@ jobs:
           node-version: '14.x'
       - name: Install dependencies
         run: npm install  # Install dependencies via npm
-    # - name: Run tests
+  # - name: Run tests
     #   run: npm run test:markdown  # Run tests (assuming this is defined in package.json)

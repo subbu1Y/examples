@@ -15,5 +15,18 @@ jobs:
         node-version: '14.x'
     - name: Install dependencies
       run: npm install  # Install dependencies via npm
+
+    test:
+      runs-on: ubuntu-latest  # Static OS value
+      env:
+        CI: true
+      steps:
+      - uses: actions/checkout@v2  # Checkout code from repository
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1  # Setup Node.js (static version 14.x)
+        with:
+          node-version: '14.x'
+      - name: Install dependencies
+      run: npm install  # Install dependencies via npm
     # - name: Run tests
     #   run: npm run test:markdown  # Run tests (assuming this is defined in package.json)
